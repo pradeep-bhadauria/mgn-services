@@ -1,0 +1,55 @@
+API to update master language details
+Call this api passing language details
+---
+tags:
+  - Master Language
+parameters:
+  - name: master_language_id
+    in: path
+    type: integer
+    required: true
+    description: Master Language Id
+  - name: language
+    in: body
+    type: json
+    required: true
+    description: Language Details
+    schema:
+      id: input_update_master_language_details
+      properties:
+        language_name:
+          type: string
+          description: The language name
+          default: eng-us
+        language_description:
+          type: string
+          description: The language description
+          default: US English
+responses:
+  500:
+    description: We had some issue. Please try again.
+  401:
+    description: You don't have sufficient permission to make this request.
+  403:
+    description: You are not authorized to access this content.
+  400:
+    description: Please check all mandatory fields and try again.
+  400:
+    description: Invalid request.
+  200:
+    description: Updating successfully
+    schema:
+      id: response_update_master_language_details
+      properties:
+        message:
+          type: string
+          description: Response Message
+          default: Updated successfully
+        status:
+          type: string
+          description: Response Status
+          default: success
+        status_code:
+          type: int
+          description: Response Status Code
+          default: 200

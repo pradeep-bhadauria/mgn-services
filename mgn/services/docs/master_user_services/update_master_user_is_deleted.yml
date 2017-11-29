@@ -1,0 +1,51 @@
+API to update master user is deleted
+Call this api passing user type id
+---
+tags:
+  - Master User
+parameters:
+  - name: master_user_id
+    in: path
+    type: integer
+    required: true
+    description: master user Id
+  - name: user_is_deleted
+    in: body
+    type: json
+    required: true
+    description: User Details
+    schema:
+      id: input_update_master_user_is_deleted
+      properties:
+        is_deleted:
+          type: integer
+          description: Is user deleted 1 or 0
+          default: 1
+responses:
+  500:
+    description: We had some issue. Please try again.
+  401:
+    description: You don't have sufficient permission to make this request.
+  403:
+    description: You are not userorized to access this content.
+  400:
+    description: Please check all mandatory fields and try again.
+  400:
+    description: Invalid request.
+  200:
+    description: Request successful
+    schema:
+      id: response_update_master_user_is_deleted
+      properties:
+        message:
+          type: string
+          description: Response Message
+          default: Updated successfully
+        status:
+          type: string
+          description: Response Status
+          default: success
+        status_code:
+          type: int
+          description: Response Status Code
+          default: 200

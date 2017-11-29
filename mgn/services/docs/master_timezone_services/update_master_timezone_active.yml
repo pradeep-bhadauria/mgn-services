@@ -1,0 +1,51 @@
+API to update master timezone active status
+Call this api passing timezone details
+---
+tags:
+  - Master Timezone
+parameters:
+  - name: timezone_id
+    in: path
+    type: integer
+    required: true
+    description: Master Timezone Id
+  - name: timezone
+    in: body
+    type: json
+    required: true
+    description: Timezone Details
+    schema:
+      id: input_update_master_timezone_active
+      properties:
+        is_active:
+          type: int
+          description: Timezone is active 1 - True, 0 - False
+          default: 1
+responses:
+  500:
+    description: We had some issue. Please try again.
+  401:
+    description: You don't have sufficient permission to make this request.
+  403:
+    description: You are not authorized to access this content.
+  400:
+    description: Please check all mandatory fields and try again.
+  400:
+    description: Invalid request.
+  200:
+    description: Updating successfully
+    schema:
+      id: response_update_master_timezone_active
+      properties:
+        message:
+          type: string
+          description: Response Message
+          default: Updated successfully
+        status:
+          type: string
+          description: Response Status
+          default: success
+        status_code:
+          type: int
+          description: Response Status Code
+          default: 200

@@ -1,0 +1,45 @@
+API to search master timezone
+Call this api passing timezone code or timezone name
+---
+tags:
+  - Master Timezone
+parameters:
+  - name: q
+    in: path
+    type: string
+    required: true
+    description: Timezone Name
+responses:
+  500:
+    description: We had some issue. Please try again.
+  401:
+    description: You don't have sufficient permission to make this request.
+  403:
+    description: You are not authorized to access this content.
+  400:
+    description: Please check all mandatory fields and try again.
+  400:
+    description: Invalid request.
+  200:
+    description: Master Timezone
+    schema:
+      id: search_master_timezone_details
+      properties:
+        id: search_master_timezone
+      properties:
+        data:
+          type: json
+          description: The timezone details
+          default: []
+        message:
+          type: string
+          description: Response Message
+          default: Request successful.
+        status:
+          type: string
+          description: Response Status
+          default: success
+        status_code:
+          type: int
+          description: Response Status Code
+          default: 200

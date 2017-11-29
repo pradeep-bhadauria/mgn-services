@@ -1,0 +1,50 @@
+API to add new user type
+Call this api passing type details
+---
+tags:
+  - User Type
+parameters:
+  - name: user_type
+    in: body
+    type: json
+    required: true
+    description: User Type Details
+    schema:
+      id: input_add_user_type
+      properties:
+        user_type:
+          type: string
+          description: User type
+          default: email
+        user_desc:
+          type: string
+          description: Userentication details
+          default: Userentication details
+responses:
+  500:
+    description: We had some issue. Please try again.
+  401:
+    description: You don't have sufficient permission to make this request.
+  403:
+    description: You are not authorized to access this content.
+  400:
+    description: Please check all mandatory fields and try again.
+  400:
+    description: Invalid request.
+  200:
+    description: Added successfully
+    schema:
+      id: response_add_user_type
+      properties:
+        message:
+          type: string
+          description: Response Message
+          default: Added successfully
+        status:
+          type: string
+          description: Response Status
+          default: success
+        status_code:
+          type: int
+          description: Response Status Code
+          default: 200

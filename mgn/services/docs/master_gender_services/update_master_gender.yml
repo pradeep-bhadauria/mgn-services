@@ -1,0 +1,51 @@
+API to update master gender
+Call this api passing id, gender details
+---
+tags:
+  - Master Gender
+parameters:
+  - name: master_gender_id
+    in: path
+    type: integer
+    required: true
+    description: Master Gender Id
+  - name: gender
+    in: body
+    type: json
+    required: true
+    description: Gender Details
+    schema:
+      id: input_update_master_gender
+      properties:
+        gender:
+          type: string
+          description: The gender
+          default: male
+responses:
+  500:
+    description: We had some issue. Please try again.
+  401:
+    description: You don't have sufficient permission to make this request.
+  403:
+    description: You are not authorized to access this content.
+  400:
+    description: Please check all mandatory fields and try again.
+  400:
+    description: Invalid request.
+  200:
+    description: Updated successfully
+    schema:
+      id: response_update_master_gender
+      properties:
+        message:
+          type: string
+          description: Response Message
+          default: Updated successfully
+        status:
+          type: string
+          description: Response Status
+          default: success
+        status_code:
+          type: int
+          description: Response Status Code
+          default: 200

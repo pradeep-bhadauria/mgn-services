@@ -1,0 +1,70 @@
+API to add new master user
+Call this api passing user details
+---
+tags:
+  - Master User
+parameters:
+  - name: master_user
+    in: body
+    type: json
+    required: true
+    description: Master User Details
+    schema:
+      id: input_add_master_user
+      properties:
+        first_name:
+          type: string
+          description: First name of the user
+          default: Jhon
+        last_name:
+          type: string
+          description: Last name of the user
+          default: Doe
+        email:
+          type: string
+          description: Email address of the user
+          default: Jhon.Doe@example.com
+        password:
+          type: string
+          description: Password of the user
+          default: Password
+        auth_type:
+          type: int
+          description: Authentication type of the user
+          default: 1
+        mgn_user_type:
+          type: int
+          description: Type of the user
+          default: 1
+        profile_pic:
+          type: string
+          description: Optional - Url for user's profile picture
+          default: image url
+responses:
+  500:
+    description: We had some issue. Please try again.
+  401:
+    description: You don't have sufficient permission to make this request.
+  403:
+    description: You are not authorized to access this content.
+  400:
+    description: Please check all mandatory fields and try again.
+  400:
+    description: Invalid request.
+  200:
+    description: Added successfully
+    schema:
+      id: response_add_master_user
+      properties:
+        message:
+          type: string
+          description: Response Message
+          default: Added successfully
+        status:
+          type: string
+          description: Response Status
+          default: success
+        status_code:
+          type: int
+          description: Response Status Code
+          default: 200

@@ -1,0 +1,58 @@
+API to add new master user settings
+Call this api passing user settings details
+---
+tags:
+  - Master User Setting
+parameters:
+  - name: user_settings
+    in: body
+    type: json
+    required: true
+    description: Master User Setting Details
+    schema:
+      id: input_add_master_user_settings
+      properties:
+        user_id:
+          type: int
+          description: Master user id
+          default: 123456
+        language_id:
+          type: int
+          description: Master language id
+          default: 123
+        timezone_id:
+          type: int
+          description: Master timezone id
+          default: 123
+        currency_id:
+          type: int
+          description: Master currency id
+          default: 123
+responses:
+  500:
+    description: We had some issue. Please try again.
+  401:
+    description: You don't have sufficient permission to make this request.
+  403:
+    description: You are not authorized to access this content.
+  400:
+    description: Please check all mandatory fields and try again.
+  400:
+    description: Invalid request.
+  200:
+    description: Added successfully
+    schema:
+      id: response_add_master_user_settings
+      properties:
+        message:
+          type: string
+          description: Response Message
+          default: Added successfully
+        status:
+          type: string
+          description: Response Status
+          default: success
+        status_code:
+          type: int
+          description: Response Status Code
+          default: 200

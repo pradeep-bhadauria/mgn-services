@@ -1,0 +1,39 @@
+API to get all master currency
+Call this api needs no input
+---
+tags:
+  - Master Currency
+responses:
+  500:
+    description: We had some issue. Please try again.
+  401:
+    description: You don't have sufficient permission to make this request.
+  403:
+    description: You are not authorized to access this content.
+  400:
+    description: Please check all mandatory fields and try again.
+  400:
+    description: Invalid request.
+  200:
+    description: Master Currency
+    schema:
+      id: all_master_currency_details
+      properties:
+        id: all_master_currency
+      properties:
+        data:
+          type: json
+          description: Currency details list
+          default: []
+        message:
+          type: string
+          description: Response Message
+          default: Request successful.
+        status:
+          type: string
+          description: Response Status
+          default: success
+        status_code:
+          type: int
+          description: Response Status Code
+          default: 200
